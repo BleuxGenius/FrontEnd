@@ -12,50 +12,67 @@ const MainDiv = styled.div`
     margin: auto;
     border: 1px solid #D7D7D7;
     border-radius: 4px;
-    margin-top: 15%;
-    
-`;
+    margin-top: 15%;`;
 
 
 const HeaderCont = styled.div`
     display: flex;
     margin: auto;
-    justify-content: center;
-`;
+    justify-content: center;`;
 
 const Header = styled.h1`
     font-size: 25px;
     font-weight: bold;
     line-height: 29px
     margin-top: 31.25px;
-    padding-right: 12.92px;
-`;
+    padding-right: 12.92px;`;
 
 const LogoImg = styled.img`
     width: 32.27px;
     height: 36.47px;
-    margin-top: 21.76px;
-`;
+    margin-top: 21.76px;`;
 
 const Label = styled.label`
-font-size: 16px;
-line-height: 19px;
-margin-left: 16px;
-
-`;
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 16px;`;
 
 const Input = styled.input`
-width: 378px;
-height: 44px;
-margin-top: 4px;
-margin-left: 16px;
-margin-bottom: 24px;
-border: 1px solid #ACACAC
-background-color: #F7F7F7
-padding-left: 10px;
-font-size: 12px;
+    width: 378px;
+    height: 44px;
+    margin-top: 4px;
+    margin-left: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #ACACAC
+    background-color: #F7F7F7
+    padding-left: 10px;
+    font-size: 12px;`;
 
+const Paragraph = styled.p`
+    font-size: 12px;
+    width: 364px;
+    height: 56px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 14px`;
 
+const Span = styled.span`
+    color: blue; `;
+
+const SignUpBtn = styled.button`
+    font-size: 16px;
+    width: 260px;
+    height: 44px;
+    color: white;
+    background-image: linear-gradient(#086571, #044A53);
+    border-radius: 5px;
+    margin-left: 80px;
+    margin-bottom: 10px; `;
+
+const SocialBtn = styled.img`
+    width: 388px;
+    border-radius: 5px;
+    margin: auto;
 `;
 
 
@@ -91,15 +108,14 @@ export default function SignUp() {
             placeholder='8 or more characters'
             
             />
-            <p>We respect privacy. Names and emails are not displayed publically. Nothing will be posted to your facebook, google or twitter account without your permission. By creating your Med Cabinet account, you agree to the terms of use and privacy policy.
-            </p>
-            <button type='submit'>Sign Up</button>
-            <p>or</p>
-            <div>
-            <img src={facebook} className='facebook' alt='connect with facebook' />
-            <img src={google} className='google' alt='connect with google' />
-            <img src={twitter} className='twitter' alt='connect with twitter' />
-            </div>
+            <Paragraph>We respect privacy. Names and emails are not displayed publically. Nothing will be posted to your facebook, google or twitter account without your permission. By creating your Med Cabinet account, you agree to the <Span>terms of use</Span> and <Span>privacy policy</Span>.
+            </Paragraph>
+            <SignUpBtn type='submit'>Sign Up</SignUpBtn>
+            <Paragraph>or</Paragraph>
+            <SocialBtn src={facebook} className='facebook' alt='connect with facebook' />
+            <SocialBtn src={google} className='google' alt='connect with google' />
+            <SocialBtn src={twitter} className='twitter' alt='connect with twitter' />
+            
             
         </form>
 
