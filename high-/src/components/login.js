@@ -8,9 +8,6 @@ import { useState } from "react";
 
 import axios from "axios"
 
-function Login() {
-  return <div>Login page</div>;
-}
 
  export default function Login(props) {
   
@@ -18,7 +15,7 @@ function Login() {
       email:"", password:""
     });
   
-    const Login = e => {
+    const handleSubmit = e => {
 
       e.preventDefault();
       props.logIn(signIn)
@@ -38,7 +35,7 @@ function Login() {
     <MDBCol md="11">
        <MDBCard>
          <MDBCardBody>
-  <Form className="login-form" onSubmit={Login}>
+  <Form className="login-form" onSubmit={handleSubmit}>
     <p>Med Cabinet </p>
     <MDBCol>
     <img src={logo} className="imageThumbnail" alt="logo"/> 

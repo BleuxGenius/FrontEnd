@@ -1,5 +1,4 @@
 
-import React from 'react';
 import React, {useState} from 'react';
 import axios from "axios"
 import logo from '../tile-logo.png';
@@ -59,9 +58,6 @@ const Paragraph = styled.p`
     margin: auto;
     margin-bottom: 14px;`;
 
-
-const Span = styled.span`
-    color: blue; `;
 
 
 const SmallParagraph = styled.p`
