@@ -6,17 +6,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "components": "^0.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-<<<<<<< HEAD
-    "react-redux": "^7.1.3",
-    "react-scripts": "3.3.0",
-    "redux": "^4.0.5"
-=======
     "react-scripts": "3.3.0",
     "styled": "^1.0.0",
     "styled-components": "^4.4.1"
->>>>>>> 9b616eaa0edd61c21208b5891bccd7b1f352ad25
   },
   "scripts": {
     "start": "react-scripts start",
