@@ -8,19 +8,21 @@ import { useState } from "react";
 
 import axios from "axios"
 
-function login() {
+function Login() {
   return <div>Login page</div>;
 }
 
  export default function Login(props) {
   
     const[signIn, setSignIn] = useState({
-      email:"", password:"" 
+      email:"", password:""
     });
   
     const Login = e => {
+
       e.preventDefault();
       props.logIn(signIn)
+      
       }
   
       const handleChanges = e => {
