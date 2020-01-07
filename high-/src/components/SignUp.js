@@ -56,6 +56,12 @@ const Paragraph = styled.p`
     margin: auto;
     margin-bottom: 14px`;
 
+const SmallParagraph = styled.p`
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 6px;
+`;
+
 const Span = styled.span`
     color: blue; `;
 
@@ -67,12 +73,20 @@ const SignUpBtn = styled.button`
     background-image: linear-gradient(#086571, #044A53);
     border-radius: 5px;
     margin-left: 80px;
-    margin-bottom: 10px; `;
+     `;
 
 const SocialBtn = styled.img`
     width: 388px;
     border-radius: 5px;
-    margin: auto;
+    margin-left: 16px;
+`;
+
+const GoogleBtn = styled.img`
+    border-radius: 5px;
+    width: 400px;
+    margin-bottom: -9px;
+    margin-left: 10px;
+    
 `;
 
 
@@ -111,9 +125,9 @@ export default function SignUp() {
             <Paragraph>We respect privacy. Names and emails are not displayed publically. Nothing will be posted to your facebook, google or twitter account without your permission. By creating your Med Cabinet account, you agree to the <Span>terms of use</Span> and <Span>privacy policy</Span>.
             </Paragraph>
             <SignUpBtn type='submit'>Sign Up</SignUpBtn>
-            <Paragraph>or</Paragraph>
+            <SmallParagraph>or</SmallParagraph>
             <SocialBtn src={facebook} className='facebook' alt='connect with facebook' />
-            <SocialBtn src={google} className='google' alt='connect with google' />
+            <GoogleBtn src={google} className='google' alt='connect with google' />
             <SocialBtn src={twitter} className='twitter' alt='connect with twitter' />
             
             
