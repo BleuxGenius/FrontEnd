@@ -6,6 +6,11 @@ import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
 import { useState } from "react";
 
 
+import axios from "axios"
+
+function login() {
+  return <div>Login page</div>;
+}
 
  export default function Login(props) {
   
