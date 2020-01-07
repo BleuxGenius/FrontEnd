@@ -1,9 +1,7 @@
 
 import React from 'react';
-
 import React, {useState} from 'react';
 import axios from "axios"
-
 import logo from '../tile-logo.png';
 import facebook from '../facebook-connect.svg';
 import twitter from '../twitter-connect.svg';
@@ -59,7 +57,7 @@ const Paragraph = styled.p`
     height: 56px;
     text-align: center;
     margin: auto;
-    margin-bottom: 14px`;
+    margin-bottom: 14px;`;
 
 
 const Span = styled.span`
@@ -128,7 +126,8 @@ export default function SignUp(props) {
         //need to add a signup function in app.js
         props.signup(signUp)
         setSignUp({email: '', username: '', password: ''});
-        .post("https://medicinalcabinet.herokuapp.com//api/user/register")
+        axios
+        .post("https://medicinalcabinet.herokuapp.com/api/user/register")
     };
 
 
@@ -139,7 +138,7 @@ export default function SignUp(props) {
             <LogoImg src={logo} alt="logo" />
             </HeaderCont>
 
-        <form>
+      
 
         <form onSubmit={handleSubmit}>
 
@@ -203,4 +202,5 @@ export default function SignUp(props) {
 
         </MainDiv>
     )
+    
 }
