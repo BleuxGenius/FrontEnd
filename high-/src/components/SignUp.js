@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from '../tile-logo.png';
 import facebook from '../facebook-connect.svg';
 import twitter from '../twitter-connect.svg';
@@ -57,13 +57,23 @@ const Paragraph = styled.p`
     margin-bottom: 14px`;
 
 const SmallParagraph = styled.p`
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 6px; `;
+
+const SignInParagraph = styled.p`
+    font-size: 14px;
+    text-align: center;
+    margin-top: 24px;
 `;
 
 const Span = styled.span`
     color: blue; `;
+
+const SignInLink = styled.a`
+    font-weight: bold;
+    color: black;
+    text-decoration: none; `;
 
 const SignUpBtn = styled.button`
     font-size: 16px;
@@ -73,24 +83,27 @@ const SignUpBtn = styled.button`
     background-image: linear-gradient(#086571, #044A53);
     border-radius: 5px;
     margin-left: 80px;
-     `;
+    margin-bottom: 10px;
+    cursor: grab; `;
 
 const SocialBtn = styled.img`
     width: 388px;
     border-radius: 5px;
     margin-left: 16px;
-`;
+    cursor: pointer; `;
 
 const GoogleBtn = styled.img`
     border-radius: 5px;
-    width: 400px;
+    width: 395px;
     margin-bottom: -9px;
     margin-left: 10px;
+    cursor: pointer; `;
+
+
+export default function SignUp(props) {
+
     
-`;
 
-
-export default function SignUp() {
     return (
         <MainDiv>
             <HeaderCont>
@@ -126,9 +139,10 @@ export default function SignUp() {
             </Paragraph>
             <SignUpBtn type='submit'>Sign Up</SignUpBtn>
             <SmallParagraph>or</SmallParagraph>
-            <SocialBtn src={facebook} className='facebook' alt='connect with facebook' />
+            <SocialBtn src={facebook} className='facebook' alt='connect with facebook' onClick={() => alert('Hello')} />
             <GoogleBtn src={google} className='google' alt='connect with google' />
             <SocialBtn src={twitter} className='twitter' alt='connect with twitter' />
+            <SignInParagraph>Already have an account? <SignInLink href='#'>Sign In</SignInLink></SignInParagraph>
             
             
         </form>
