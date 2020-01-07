@@ -102,7 +102,19 @@ const GoogleBtn = styled.img`
 
 export default function SignUp(props) {
 
+    const [signUp, setSignUp] = useState({email: '', username: '', password: ''});
+
+    const handleChange = event => {
+        console.log('This is the signup', signUp)
+        setSignUp({...signUp, [event.target.name]: event.target.value});
+    };
     
+    const handleSubmit = event => {
+        event.preventDefault();
+        //need to add a signup function in app.js
+        props.signup(signUp)
+        setSignUp({email: '', username: '', password: ''});
+    };
 
     return (
         <MainDiv>
@@ -110,13 +122,15 @@ export default function SignUp(props) {
             <Header>Med Cabinet</Header>
             <LogoImg src={logo} alt="logo" />
             </HeaderCont>
-        <form>
+        <form onSubmit={handleSubmit}>
             <Label htmlFor='email'>Email</Label><br />
             <Input 
             id='email'
             type='text'
             name='email'
             placeholder='example@example.com'
+            value={signUp.email}
+            onChange={handleChange}
             
             /><br />
             <Label htmlFor='username'>Username</Label><br />
@@ -125,6 +139,8 @@ export default function SignUp(props) {
             type='text'
             name='username'
             placeholder='Create your username'
+            value={signUp.username}
+            onChange={handleChange}
             
             /><br />
             <Label htmlFor='password'>Password</Label><br />
@@ -133,6 +149,8 @@ export default function SignUp(props) {
             type='password'
             name='password'
             placeholder='8 or more characters'
+            value={signUp.password}
+            onChange={handleChange}
             
             />
             <Paragraph>We respect privacy. Names and emails are not displayed publically. Nothing will be posted to your facebook, google or twitter account without your permission. By creating your Med Cabinet account, you agree to the <Span>terms of use</Span> and <Span>privacy policy</Span>.
