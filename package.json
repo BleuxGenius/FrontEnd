@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.19.0"
+=======
+    "styled": "^1.0.0"
+>>>>>>> 9b616eaa0edd61c21208b5891bccd7b1f352ad25
   }
 }
