@@ -1,4 +1,9 @@
 
+* {
+    border: 1px solid red;
+}
+
+
 
   
 
@@ -63,3 +68,4 @@ color: #044A53;
     transform: rotate(360deg);
   }
 } */
+
