@@ -1,8 +1,35 @@
-.App {
-  text-align: center;
+
+
+  
+
+
+.container{
+  margin-left: 100px;
+ 
 }
 
-.App-logo {
+
+
+.login-form {
+  text-align: center;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  height: 50%;
+  box-shadow: 10px;
+
+}
+
+.btn-sm {
+background-color: #73A0DB ;
+color: #044A53;
+}
+
+
+
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +62,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
