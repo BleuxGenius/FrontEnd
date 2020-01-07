@@ -1,7 +1,12 @@
 import React from "react";
 
-function login() {
-  return <div>Login page</div>;
+
+ class Login extends React.Component {
+  render() {
+    return(
+      <h1>Login</h1>
+    )
+  }
 }
 
-export default login;
+export default Login;
