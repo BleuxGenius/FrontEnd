@@ -1,8 +1,6 @@
 
-import React from 'react';
-
 import React, {useState} from 'react';
-
+import axios from "axios"
 import logo from '../tile-logo.png';
 import facebook from '../facebook-connect.svg';
 import twitter from '../twitter-connect.svg';
@@ -27,7 +25,7 @@ const HeaderCont = styled.div`
 const Header = styled.h1`
     font-size: 25px;
     font-weight: bold;
-    line-height: 29px
+    line-height: 29px;
     margin-top: 31.25px;
     padding-right: 12.92px;`;
 
@@ -47,8 +45,8 @@ const Input = styled.input`
     margin-top: 4px;
     margin-left: 16px;
     margin-bottom: 24px;
-    border: 1px solid #ACACAC
-    background-color: #F7F7F7
+    border: 1px solid #ACACAC;
+    background-color: #F7F7F7;
     padding-left: 10px;
     font-size: 12px;`;
 
@@ -58,11 +56,8 @@ const Paragraph = styled.p`
     height: 56px;
     text-align: center;
     margin: auto;
-    margin-bottom: 14px`;
+    margin-bottom: 14px;`;
 
-
-const Span = styled.span`
-    color: blue; `;
 
 
 const SmallParagraph = styled.p`
@@ -93,9 +88,6 @@ const SignUpBtn = styled.button`
     background-image: linear-gradient(#086571, #044A53);
     border-radius: 5px;
     margin-left: 80px;
-
-    margin-bottom: 10px; `;
-
     margin-bottom: 10px;
     cursor: grab; `;
 
@@ -105,11 +97,6 @@ const SocialBtn = styled.img`
     border-radius: 5px;
 
     margin: auto;
-`;
-
-
-export default function SignUp() {
-
     margin-left: 16px;
     cursor: pointer; `;
 
@@ -135,6 +122,8 @@ export default function SignUp(props) {
         //need to add a signup function in app.js
         props.signup(signUp)
         setSignUp({email: '', username: '', password: ''});
+        axios
+        .post("https://medicinalcabinet.herokuapp.com/api/user/register")
     };
 
 
@@ -145,7 +134,7 @@ export default function SignUp(props) {
             <LogoImg src={logo} alt="logo" />
             </HeaderCont>
 
-        <form>
+      
 
         <form onSubmit={handleSubmit}>
 
@@ -209,4 +198,5 @@ export default function SignUp(props) {
 
         </MainDiv>
     )
+    
 }

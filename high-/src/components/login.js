@@ -8,19 +8,19 @@ import { useState } from "react";
 
 import axios from "axios"
 
-function login() {
-  return <div>Login page</div>;
-}
 
  export default function Login(props) {
   
     const[signIn, setSignIn] = useState({
-      email:"", password:"" 
+      email:"", password:""
     });
   
-    const Login = e => {
+    const handleSubmit = e => {
+
       e.preventDefault();
-      props.logIn(signIn)
+      // props.logIn(signIn);
+      axios
+      .post("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
       }
   
       const handleChanges = e => {
@@ -36,7 +36,7 @@ function login() {
     <MDBCol md="11">
        <MDBCard>
          <MDBCardBody>
-  <Form className="login-form" onSubmit={Login}>
+  <Form className="login-form" onSubmit={handleSubmit}>
     <p>Med Cabinet </p>
     <MDBCol>
     <img src={logo} className="imageThumbnail" alt="logo"/> 
@@ -44,7 +44,7 @@ function login() {
     <h2 className="text-center">Login</h2>
     <FormGroup>
       <Label >Email</Label>
-      <Input type="email" name="email" placeholder="Email" value={signIn.email} onChange={handleChanges}/>
+      <Input type="text" name="email" placeholder="Email" value={signIn.email} onChange={handleChanges}/>
       </FormGroup>
       <FormGroup>
       <Label>Password</Label>
