@@ -10,7 +10,7 @@ export const login = loginData => dispatch => {
   
     axiosWithAuth()
       .post(`/api/user/login`, loginData)
-      .then(response =>
+      .then(response => 
         dispatch(
           { type: USER_LOGING_IN_SUCCESS, payload: response.data.user },
           localStorage.setItem("token", response.data.token),
