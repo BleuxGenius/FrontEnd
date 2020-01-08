@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import logo from '../tile-logo.png';
 import location from '../location.png'
@@ -65,14 +66,6 @@ const NaviLink = styled.a`
     text-decoration: none;
 `;
 
-const SignInLink = styled.a`
-    margin-left: 31px;
-    color: #044953;
-    font-size: 16px;
-    margin-right: 11px;
-    text-decoration: none;
-`;
-
 const SignUpBtn = styled.button`
     font-size: 16px;
     width: 100px;
@@ -108,8 +101,32 @@ const LearnButton = styled.button`
     position: absolute;
     top: 245px;
     left: 170px;
+    border: none;
 
 `;
+
+const LoginLink = styled(Link)`
+    margin-left: 31px;
+    color: #044953;
+    font-size: 16px;
+    margin-right: 11px;
+    text-decoration: none;
+`;
+
+const SignUpLink = styled(Link)`
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-image: linear-gradient(#086571, #044A53);
+    border-radius: 5px;
+    cursor: grab; 
+    text-decoration: none
+    text-align: center;
+    padding-top: 10px;
+`;
+
+
 
 export default function NavBar() {
     return (
@@ -131,8 +148,8 @@ export default function NavBar() {
                 />
                 <NaviLink href='#'>Strains</NaviLink>
                 <NaviLink href='#'>Dispensaries</NaviLink>
-                <SignInLink href='#'>Sign In</SignInLink>
-                <SignUpBtn>Sign Up</SignUpBtn>
+                <LoginLink to='/login'>Sign In</LoginLink>
+                <SignUpLink to='signup'>Sign Up</SignUpLink>
             </InnerDiv>
                 <HeaderImg src={banner} alt='banner image' />
                 <TextDiv>The Cannabis Guide Just For You</TextDiv>

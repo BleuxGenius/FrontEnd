@@ -118,12 +118,11 @@ export default function SignUp(props) {
     
     const handleSubmit = event => {
         event.preventDefault();
-        //need to add a signup function in app.js
-        props.signup(signUp)
         setSignUp({email: '', username: '', password: ''});
         axios
-        .post("https://medicinalcabinet.herokuapp.com/api/user/register")
+        .post("https://reqres.in/api/users")
     };
+    //https://medicinalcabinet.herokuapp.com/api/user/register
 
 
     return (
@@ -138,15 +137,14 @@ export default function SignUp(props) {
         <form onSubmit={handleSubmit}>
 
             <Label htmlFor='email'>Email</Label><br />
-            <Input required
+            <Input 
             id='email'
-            type='text'
+            type='email'
             name='email'
             placeholder='example@example.com'
-
-
             value={signUp.email}
             onChange={handleChange}
+            required
 
             
             /><br />
@@ -165,13 +163,14 @@ export default function SignUp(props) {
             <Label htmlFor='password'>Password</Label><br />
             <Input
             id='password'
-            type='password'
+            type='text'
             name='password'
             placeholder='8 or more characters'
-
-
             value={signUp.password}
             onChange={handleChange}
+            required
+            min='8'
+            
 
             
             />
