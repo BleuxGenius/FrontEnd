@@ -138,7 +138,7 @@ export default function SignUp(props) {
         <form onSubmit={handleSubmit}>
 
             <Label htmlFor='email'>Email</Label><br />
-            <Input 
+            <Input required
             id='email'
             type='text'
             name='email'
