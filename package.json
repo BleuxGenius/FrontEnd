@@ -1,13 +1,16 @@
 {
-  "dependencies": {
-
-    "styled": "^1.0.0"
-
-
-    "styled": "^1.0.0"
-
-    "axios": "^0.19.0"
+  "name": "medicinal-cabinet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MedicinalCabinet/FrontEnd.git",
+  "author": "Anthony Lopez <anthonybeconscious@gmail.com>",
+  "license": "MIT",
 
 
-  }
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+}
 }
