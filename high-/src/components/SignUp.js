@@ -59,7 +59,6 @@ const Paragraph = styled.p`
     margin-bottom: 14px;`;
 
 
-
 const SmallParagraph = styled.p`
     font-size: 14px;
     text-align: center;
@@ -179,11 +178,6 @@ export default function SignUp(props) {
             <Paragraph>We respect privacy. Names and emails are not displayed publically. Nothing will be posted to your facebook, google or twitter account without your permission. By creating your Med Cabinet account, you agree to the <Span>terms of use</Span> and <Span>privacy policy</Span>.
             </Paragraph>
             <SignUpBtn type='submit'>Sign Up</SignUpBtn>
-
-            <Paragraph>or</Paragraph>
-            <SocialBtn src={facebook} className='facebook' alt='connect with facebook' />
-            <SocialBtn src={google} className='google' alt='connect with google' />
-            <SocialBtn src={twitter} className='twitter' alt='connect with twitter' />
 
             <SmallParagraph>or</SmallParagraph>
             <SocialBtn src={facebook} className='facebook' alt='connect with facebook' onClick={() => alert('Hello')} />

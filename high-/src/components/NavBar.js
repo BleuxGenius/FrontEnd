@@ -97,7 +97,17 @@ const TextDiv = styled.div`
     width: 333px;
     height: 84px;
     font-size: 36px;
+`;
 
+const LearnButton = styled.button`
+    color: white
+    font-size: 19px;
+    background-color: #044953;
+    width: 145px
+    height: 38px;
+    position: absolute;
+    top: 245px;
+    left: 170px;
 
 `;
 
@@ -126,6 +136,7 @@ export default function NavBar() {
             </InnerDiv>
                 <HeaderImg src={banner} alt='banner image' />
                 <TextDiv>The Cannabis Guide Just For You</TextDiv>
+                <LearnButton>Learn Now</LearnButton>
             
         </MainDiv>
        
