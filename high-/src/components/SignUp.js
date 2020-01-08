@@ -143,7 +143,7 @@ export default function SignUp() {
                 id='email'
                 type='text'
                 name='email' 
-                //defaultValue='example@example.com' 
+                defaultValue='example@example.com' 
                 placeholder='example@example.com'
                 value={signUp.email}
                 onChange={handleChange}
@@ -162,7 +162,6 @@ export default function SignUp() {
                 onChange={handleChange}
                 ref={register({ required: true})}
             />
-            
             <br />
             <Label htmlFor='password'>Password</Label><br />
             {errors.password && <ErrorMessage>Password must be 8 or more characters</ErrorMessage>}
@@ -175,16 +174,15 @@ export default function SignUp() {
                 onChange={handleChange}
                 ref={register({ required: true, minLength: 8 })}
                 />
-                
                 <br />
             <Paragraph>We respect privacy. Names and emails are not displayed publically. Nothing will be posted to your facebook, google or twitter account without your permission. By creating your Med Cabinet account, you agree to the <Span>terms of use</Span> and <Span>privacy policy</Span>.
             </Paragraph>
             <SignUpBtn type='submit'>Sign Up</SignUpBtn>
             </form>
             <SmallParagraph>or</SmallParagraph>
-            <SocialBtn src={facebook} className='facebook' alt='connect with facebook' onClick={() => alert('Hello')} />
-            <GoogleBtn src={google} className='google' alt='connect with google' />
-            <SocialBtn src={twitter} className='twitter' alt='connect with twitter' />
+            <SocialBtn src={facebook} className='facebook' alt='connect with facebook' onClick={() => window.open('https://en-gb.facebook.com/login/')} />
+            <GoogleBtn src={google} className='google' alt='connect with google' onClick={() => window.open('https://accounts.google.com/AccountChooser?Email=ksdpmmmp%40gmail.com&ignoreShadow=1')} />
+            <SocialBtn src={twitter} className='twitter' alt='connect with twitter' onClick={() => window.open('https://twitter.com/hashtag/login?lang=en')} />
             <SignInParagraph>Already have an account? <LoginLink to='/login'>Sign In</LoginLink></SignInParagraph>
 
             </MainDiv>
