@@ -1,4 +1,8 @@
 import {
+  USER_SIGNING,
+  USER_SIGNING_SUCCESS,
+  USER_SIGNING_FAILURE,
+  //
   USER_LOGING_IN,
   USER_LOGING_IN_SUCCESS,
   USER_LOGING_IN_FAILURE
@@ -16,6 +20,26 @@ const reducer = (state = initialState, action) => {
   // console.log('Data from reducer', state.userData)
 
   switch (action.type) {
+    case USER_SIGNING:
+      return {
+        ...state,
+        fetchingData: true
+      };
+
+    case USER_SIGNING_SUCCESS:
+      return {
+        ...state,
+        fetchingData: false,
+        userData: action.payload
+      };
+
+    case USER_SIGNING_FAILURE:
+      return {
+        ...state,
+        fetchingData: false,
+        error: action.payload
+      };
+
     case USER_LOGING_IN:
       return {
         ...state,

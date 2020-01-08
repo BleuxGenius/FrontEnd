@@ -9,25 +9,21 @@ import {
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody } from "mdbreact";
 import { useState } from "react";
 
+import { connect } from "react-redux";
+import { login } from "../actions";
+
 import axios from "axios";
 
-export default function Login(props) {
-  const [signIn, setSignIn] = useState({
-    email: "",
-    password: ""
-  });
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    // props.logIn(signIn);
-    axios.post("https://medicinalcabinet.herokuapp.com/api/user/login", signIn);
+const Login = props => {
+  const [loginInfo, setLogininfo] = useState({ email: "", password: "" });
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.login(loginInfo);
+    setLogininfo({ email: "", password: "" });
   };
-
-  const handleChanges = e => {
-    setSignIn({
-      ...signIn,
-      [e.target.name]: e.target.value
-    });
+  const handleChanges = event => {
+    setLogininfo({ ...loginInfo, [event.target.name]: event.target.value });
+    console.log(event.target.name, event.target.value);
   };
 
   return (
@@ -48,7 +44,7 @@ export default function Login(props) {
                     type="text"
                     name="email"
                     placeholder="Email"
-                    value={signIn.email}
+                    value={loginInfo.email}
                     onChange={handleChanges}
                   />
                 </FormGroup>
@@ -58,7 +54,7 @@ export default function Login(props) {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    value={signIn.password}
+                    value={loginInfo.password}
                     onChange={handleChanges}
                   />
                 </FormGroup>
@@ -91,7 +87,7 @@ export default function Login(props) {
                 <TwitterLoginButton />
                 <p>
                   Don't have an account?
-                  <a href="/" class="signUpLink">
+                  <a href="#" class="signUpLink">
                     Sign Up
                   </a>
                 </p>
@@ -102,4 +98,6 @@ export default function Login(props) {
       </MDBRow>
     </MDBContainer>
   );
-}
+};
+
+export default connect(null, { login })(Login);
