@@ -66,16 +66,6 @@ const NaviLink = styled.a`
     text-decoration: none;
 `;
 
-const SignUpBtn = styled.button`
-    font-size: 16px;
-    width: 100px;
-    height: 40px;
-    color: white;
-    background-image: linear-gradient(#086571, #044A53);
-    border-radius: 5px;
-    cursor: grab; 
-`;
-
 const HeaderImg = styled.img`
     width: 1440px;
     height: 280px;
@@ -102,7 +92,6 @@ const LearnButton = styled.button`
     top: 245px;
     left: 170px;
     border: none;
-
 `;
 
 const LoginLink = styled(Link)`

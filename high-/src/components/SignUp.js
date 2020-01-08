@@ -1,5 +1,7 @@
 
 import React, {useState} from 'react';
+import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import axios from "axios"
 import logo from '../tile-logo.png';
 import facebook from '../facebook-connect.svg';
@@ -31,7 +33,6 @@ const Header = styled.h1`
 
 const LogoImg = styled.img`
     width: 32.27px;
-    height: 36.47px;
     margin-top: 21.76px;`;
 
 const Label = styled.label`
@@ -73,7 +74,7 @@ const SignInParagraph = styled.p`
 const Span = styled.span`
     color: blue; `;
 
-const SignInLink = styled.a`
+const LoginLink = styled(Link)`
     font-weight: bold;
     color: black;
     text-decoration: none; `;
@@ -94,7 +95,6 @@ const SignUpBtn = styled.button`
 const SocialBtn = styled.img`
     width: 388px;
     border-radius: 5px;
-
     margin: auto;
     margin-left: 16px;
     cursor: pointer; `;
@@ -106,25 +106,30 @@ const GoogleBtn = styled.img`
     margin-left: 10px;
     cursor: pointer; `;
 
+const ErrorMessage = styled.span`
+    color: red;
+    line-height: 19px;
+    margin-left: 16px;
+    font-size: 14px;
+    font-weight: bold;
 
-export default function SignUp(props) {
+`;
 
-    const [signUp, setSignUp] = useState({email: '', username: '', password: ''});
+
+export default function SignUp() {
+
+    const [signUp, setSignUp] = useState({username: '', password: ''});
+    const { register, handleSubmit, errors } = useForm();
+    const onSubmit = data => {
+        axios
+        .post("https://medicinalcabinet.herokuapp.com/api/user/register", signUp)
+        console.log('User data', data);
+    }
 
     const handleChange = event => {
-        console.log('This is the signup', signUp)
         setSignUp({...signUp, [event.target.name]: event.target.value});
     };
     
-    const handleSubmit = event => {
-        event.preventDefault();
-        setSignUp({email: '', username: '', password: ''});
-        axios
-        .post("https://reqres.in/api/users")
-    };
-    //https://medicinalcabinet.herokuapp.com/api/user/register
-
-
     return (
         <MainDiv>
             <HeaderCont>
@@ -132,64 +137,59 @@ export default function SignUp(props) {
             <LogoImg src={logo} alt="logo" />
             </HeaderCont>
 
-      
-
-        <form onSubmit={handleSubmit}>
-
-            <Label htmlFor='email'>Email</Label><br />
+            <form onSubmit={handleSubmit(onSubmit)}>
+            {/* <Label htmlFor='email'>Email</Label><br />
             <Input 
-            id='email'
-            type='email'
-            name='email'
-            placeholder='example@example.com'
-            value={signUp.email}
-            onChange={handleChange}
-            required
-
-            
-            /><br />
-            <Label htmlFor='username'>Username</Label><br />
-            <Input
-            id='username'
-            type='text'
-            name='username'
-            placeholder='Create your username'
-
-            value={signUp.username}
-            onChange={handleChange}
-
-            
-            /><br />
-            <Label htmlFor='password'>Password</Label><br />
-            <Input
-            id='password'
-            type='text'
-            name='password'
-            placeholder='8 or more characters'
-            value={signUp.password}
-            onChange={handleChange}
-            required
-            min='8'
-            
-
-            
+                id='email'
+                type='text'
+                name='email' 
+                //defaultValue='example@example.com' 
+                placeholder='example@example.com'
+                value={signUp.email}
+                onChange={handleChange}
+                ref={register({ required: true, maxLength: 50 })}
             />
+            {errors.email && <p>The field is required</p>} */}
+            <br />
+            <Label htmlFor='username'>Username</Label><br />
+            {errors.username && <ErrorMessage>This field is required</ErrorMessage>}
+            <Input
+                id='username'
+                type='text'
+                name='username'
+                placeholder='Create your username'
+                value={signUp.username}
+                onChange={handleChange}
+                ref={register({ required: true})}
+            />
+            
+            <br />
+            <Label htmlFor='password'>Password</Label><br />
+            {errors.password && <ErrorMessage>Password must be 8 or more characters</ErrorMessage>}
+            <Input
+                id='password'
+                type='password'
+                name='password'
+                placeholder='8 or more characters'
+                value={signUp.password}
+                onChange={handleChange}
+                ref={register({ required: true, minLength: 8 })}
+                />
+                
+                <br />
             <Paragraph>We respect privacy. Names and emails are not displayed publically. Nothing will be posted to your facebook, google or twitter account without your permission. By creating your Med Cabinet account, you agree to the <Span>terms of use</Span> and <Span>privacy policy</Span>.
             </Paragraph>
             <SignUpBtn type='submit'>Sign Up</SignUpBtn>
-
+            </form>
             <SmallParagraph>or</SmallParagraph>
             <SocialBtn src={facebook} className='facebook' alt='connect with facebook' onClick={() => alert('Hello')} />
             <GoogleBtn src={google} className='google' alt='connect with google' />
             <SocialBtn src={twitter} className='twitter' alt='connect with twitter' />
-            <SignInParagraph>Already have an account? <SignInLink href='#'>Sign In</SignInLink></SignInParagraph>
+            <SignInParagraph>Already have an account? <LoginLink to='/login'>Sign In</LoginLink></SignInParagraph>
 
-            
-            
-        </form>
+            </MainDiv>
+        );
+        
+    }
 
-
-        </MainDiv>
-    )
     
-}
