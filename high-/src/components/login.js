@@ -18,8 +18,9 @@ import axios from "axios"
     const handleSubmit = e => {
 
       e.preventDefault();
-      props.logIn(signIn)
-      
+      // props.logIn(signIn);
+      axios
+      .post("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
       }
   
       const handleChanges = e => {
@@ -43,7 +44,7 @@ import axios from "axios"
     <h2 className="text-center">Login</h2>
     <FormGroup>
       <Label >Email</Label>
-      <Input type="email" name="email" placeholder="Email" value={signIn.email} onChange={handleChanges}/>
+      <Input type="text" name="email" placeholder="Email" value={signIn.email} onChange={handleChanges}/>
       </FormGroup>
       <FormGroup>
       <Label>Password</Label>
