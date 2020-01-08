@@ -138,7 +138,7 @@ export default function NavBar() {
                 <NaviLink href='#'>Strains</NaviLink>
                 <NaviLink href='#'>Dispensaries</NaviLink>
                 <LoginLink to='/login'>Sign In</LoginLink>
-                <SignUpLink to='signup'>Sign Up</SignUpLink>
+                <SignUpLink to='/signup'>Sign Up</SignUpLink>
             </InnerDiv>
                 <HeaderImg src={banner} alt='banner image' />
                 <TextDiv>The Cannabis Guide Just For You</TextDiv>
