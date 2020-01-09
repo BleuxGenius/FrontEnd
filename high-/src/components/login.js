@@ -15,15 +15,20 @@ import { login } from "../actions";
 import axios from "axios";
 
 const Login = props => {
-  const [loginInfo, setLogininfo] = useState({ email: "", password: "" });
+  const [loginInfo, setLogininfo] = useState({ username: "", password: "" });
   const handleSubmit = event => {
     event.preventDefault();
     props.login(loginInfo);
-    setLogininfo({ email: "", password: "" });
+    console.log(loginInfo)
+    // setLogininfo({ username: "", password: "" });
+    axios
+    .post("https://medicinalcabinet.herokuapp.com/api/user/login, loginInfo")
+
   };
   const handleChanges = event => {
     setLogininfo({ ...loginInfo, [event.target.name]: event.target.value });
     console.log(event.target.name, event.target.value);
+    
   };
 
   return (
@@ -42,9 +47,9 @@ const Login = props => {
                   <Label>Email</Label>
                   <Input
                     type="text"
-                    name="email"
+                    name="username"
                     placeholder="Email"
-                    value={loginInfo.email}
+                    value={loginInfo.username}
                     onChange={handleChanges}
                   />
                 </FormGroup>

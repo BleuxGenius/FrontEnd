@@ -32,7 +32,7 @@ export const login = loginData => dispatch => {
   dispatch({ type: USER_LOGING_IN });
 
   axiosWithAuth()
-    .post(`/api/user/login`, loginData)
+    .post(`api/user/login`, loginData)
     .then(response =>
       dispatch(
         { type: USER_LOGING_IN_SUCCESS, payload: response.data.user },
