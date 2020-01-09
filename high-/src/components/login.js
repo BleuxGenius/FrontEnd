@@ -2,11 +2,9 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import logo from './images/Logo.png';
 import {FacebookLoginButton, TwitterLoginButton, GoogleLoginButton} from 'react-social-login-buttons';
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
 import { useState } from "react";
-
-
-import axios from "axios"
+import { Link } from 'react-router-dom'
+import axios from "axios" 
 
 
  export default function Login(props) {
@@ -21,6 +19,9 @@ import axios from "axios"
       // props.logIn(signIn);
       axios
       .post("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
+
+      axios
+      .get("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
       }
   
       const handleChanges = e => {
@@ -30,17 +31,19 @@ import axios from "axios"
       };
   
     return(
+
+      // flex-row w-50 justify-content-center
      
-  <MDBContainer className="container flex-row w-50 justify-content-center" >
-  <MDBRow>
-    <MDBCol md="11">
-       <MDBCard>
-         <MDBCardBody>
+  <div className="container" >
+  <div className="row">
+    <div className="column" md="11">
+       <div className="card">
+         <div className="cardBody">
   <Form className="login-form" onSubmit={handleSubmit}>
     <p>Med Cabinet </p>
-    <MDBCol>
+    <div className="picColumn">
     <img src={logo} className="imageThumbnail" alt="logo"/> 
-    </MDBCol>
+    </div>
     <h2 className="text-center">Login</h2>
     <FormGroup>
       <Label >Email</Label>
@@ -71,15 +74,13 @@ import axios from "axios"
         <GoogleLoginButton/>
         <TwitterLoginButton/>
           <p>
-            Don't have an account?<a href="/" class="signUpLink">Sign Up</a>
+            Don't have an account?<Link to="/SignUp.js" class="signUpLink">Sign Up</Link>
           </p>
   </Form>
-  </MDBCardBody>
-  </MDBCard>
-  </MDBCol>
-</MDBRow>
-  </MDBContainer>
-
-  
+  </div>
+  </div>
+  </div>
+</div>
+  </div>
 );
 };
