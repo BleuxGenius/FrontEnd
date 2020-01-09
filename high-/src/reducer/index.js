@@ -5,7 +5,12 @@ import {
   //
   USER_LOGING_IN,
   USER_LOGING_IN_SUCCESS,
-  USER_LOGING_IN_FAILURE
+  USER_LOGING_IN_FAILURE,
+
+  START_FETCHING_DATA,
+  FETCH_SUCCESS_DATA,
+  FETCH_FAILURE_DATA,
+
 } from "../actions";
 
 const initialState = {
@@ -60,9 +65,31 @@ const reducer = (state = initialState, action) => {
         error: action.payload
       };
 
+      case START_FETCHING_DATA:
+        return{
+            ...state,
+            fetchingData: true
+        }
+    
+    case FETCH_SUCCESS_DATA:
+        return{
+            ...state,
+            fetchingData: false,
+            getUserData: action.payload,
+            userData: action.payload
+        }
+    
+    case FETCH_FAILURE_DATA:
+        return{
+            ...state,
+            fetchingData: false,
+            error: action.payload
+        }
+
     default:
       return state;
   }
 };
+
 
 export default reducer;
