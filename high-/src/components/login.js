@@ -60,16 +60,16 @@ const Login = props => {
                 </FormGroup>
                 <button className="btn-sm btn-dark-block">Sign In</button>
 
-                <div class="d-flex justify-content-between">
+                <div className="d-flex justify-content-between">
                   <div>
-                    <div class="custom-control custom-checkbox">
+                    <div className="custom-control custom-checkbox">
                       <input
                         type="checkbox"
-                        class="custom-control-input"
+                        className="custom-control-input"
                         id="defaultLoginFormRemember"
                       />
                       <label
-                        class="custom-control-label"
+                        className="custom-control-label"
                         for="defaultLoginFormRemember"
                       >
                         Remember me
@@ -87,7 +87,7 @@ const Login = props => {
                 <TwitterLoginButton />
                 <p>
                   Don't have an account?
-                  <a href="#" class="signUpLink">
+                  <a href="#" className="signUpLink">
                     Sign Up
                   </a>
                 </p>

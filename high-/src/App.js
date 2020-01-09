@@ -13,8 +13,9 @@ function App() {
       <div className="App">
         <Route exact path="/login" component={Login} />
         <Route exact path="/" component={SignUp} />
-      </div>{" "}
-      <PrivateRoute path="/home" component={Home} />
+
+        <PrivateRoute path="/home" component={Home} />
+      </div>
     </Router>
   );
 }

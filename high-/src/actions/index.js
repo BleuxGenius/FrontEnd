@@ -40,7 +40,57 @@ export const login = loginData => dispatch => {
         history.push("/")
       )
     )
-    .catch(err =>
-      dispatch({ type: USER_LOGING_IN_FAILURE, payload: err.response })
-    );
+    .catch(err => {
+      dispatch({ type: USER_LOGING_IN_FAILURE, payload: err.response });
+    });
+};
+
+export const POST_STRAINS_START = "POST_STRAINS_START";
+export const POST_STRAINS_SUCCESS = "POST_STRAINS_SUCCESS";
+export const POST_STRAINS_FAILURE = "POST_STRAINS_FAILURE";
+
+export const postStrainData = newStrain => dispatch => {
+  dispatch({ type: POST_STRAINS_START });
+
+  axiosWithAuth()
+    .post(`/api/strain`, newStrain)
+
+    .then(res => {
+      dispatch({ type: POST_STRAINS_SUCCESS, payload: res.data });
+    })
+
+    .catch(err => {
+      dispatch({
+        type: POST_STRAINS_FAILURE,
+
+        payload: `${err.response.status}: ${err.response.statusText}`
+      });
+    });
+};
+
+//DELETE
+
+export const DELETE_STRAINS_START = "DELETE_STRAINS_START";
+
+export const DELETE_STRAINS_SUCCESS = "DELETE_STRAINS_SUCCESS";
+
+export const DELETE_STRAINS_FAILURE = "DELETE_STRAINS_FAILURE";
+
+export const deleteStrain = id => dispatch => {
+  dispatch({ type: DELETE_STRAINS_START });
+
+  axiosWithAuth()
+    .delete(`/api/strain/${id}`)
+
+    .then(res => {
+      dispatch({ type: DELETE_STRAINS_SUCCESS, payload: res.data });
+    })
+
+    .catch(err => {
+      dispatch({
+        type: DELETE_STRAINS_FAILURE,
+
+        payload: `${err.response.status}: ${err.response.statusText}`
+      });
+    });
 };
