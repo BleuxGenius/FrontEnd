@@ -11,7 +11,7 @@ export const signUp = signUpData => dispatch => {
   dispatch({ type: USER_SIGNING });
 
   axiosWithAuth()
-    .post(`/api/user/register`, signUpData)
+    .post(`api/user/register`, signUpData)
     .then(response =>
       dispatch(
         { type: USER_SIGNING_SUCCESS, payload: response.data.user },
@@ -94,3 +94,15 @@ export const deleteStrain = id => dispatch => {
       });
     });
 };
+
+export const START_FETCHING_DATA = "START_FETCHING_DATA";
+export const FETCH_SUCCESS_DATA = "FETCH_SUCCESS_DATA";
+export const FETCH_FAILURE_DATA = "FETCH_FAILURE_DATA";
+
+export const fetchingUserData = () => dispatch => {
+  dispatch({type: START_FETCHING_DATA})
+  axiosWithAuth()
+  .get(`api/users/profile`)
+  .then(response => dispatch({ type: FETCH_SUCCESS_DATA, payload: response.data }))
+  .catch(err => dispatch({type: FETCH_FAILURE_DATA, payload: err.response}))
+}

@@ -6,6 +6,7 @@ import {
   USER_LOGING_IN,
   USER_LOGING_IN_SUCCESS,
   USER_LOGING_IN_FAILURE,
+<<<<<<< HEAD
   //
   POST_STRAINS_START,
   POST_STRAINS_SUCCESS,
@@ -14,6 +15,13 @@ import {
   DELETE_STRAINS_START,
   DELETE_STRAINS_SUCCESS,
   DELETE_STRAINS_FAILURE
+=======
+
+  START_FETCHING_DATA,
+  FETCH_SUCCESS_DATA,
+  FETCH_FAILURE_DATA,
+
+>>>>>>> e23c47754ccfb3e83be45fc32410d2d0f5c462a2
 } from "../actions";
 
 const initialState = {
@@ -68,6 +76,7 @@ const reducer = (state = initialState, action) => {
         error: action.payload
       };
 
+<<<<<<< HEAD
     case POST_STRAINS_START:
       return {
         ...state,
@@ -114,10 +123,33 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
         isDeleting: false
       };
+=======
+      case START_FETCHING_DATA:
+        return{
+            ...state,
+            fetchingData: true
+        }
+    
+    case FETCH_SUCCESS_DATA:
+        return{
+            ...state,
+            fetchingData: false,
+            getUserData: action.payload,
+            userData: action.payload
+        }
+    
+    case FETCH_FAILURE_DATA:
+        return{
+            ...state,
+            fetchingData: false,
+            error: action.payload
+        }
+>>>>>>> e23c47754ccfb3e83be45fc32410d2d0f5c462a2
 
     default:
       return state;
   }
 };
+
 
 export default reducer;
