@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import strainbox from '../Strainbox.png'
 
@@ -26,7 +27,7 @@ const Header = styled.h2`
     text-align: left;
 `;
 
-const ViewLink = styled.a`
+const ViewLink = styled(Link)`
     font-size: 16px;
     color: #044953;
 `;
@@ -63,7 +64,7 @@ export default function StrainsCard() {
         <div>
             <TopDiv>
             <Header>Popular Strains</Header>
-            <ViewLink href='#'>View More</ViewLink>
+            <ViewLink linkto='/viewmore'>View More</ViewLink>
             </TopDiv>
             <StrainDiv>
                 <TileImg src={strainbox} alt='strain type'></TileImg>
