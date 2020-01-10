@@ -1,33 +1,24 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import "./App.css";
-import SignUp from './components/SignUp';
-import Login from './components/Login';
-import NavBar from './components/NavBar'
-import StrainsCard from './components/StrainsCard';
-
-
+import SignUp from "./components/SignUp";
+import PrivateRoute from "./components/PrivateRoute";
+//import axios from "axios"
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <div className="App">
-      <Route exact path='/'>
-      <NavBar />
-      </Route>
-      <Route path='/signup'>
-        <SignUp />
-      </Route>
-      <Route path='/login'>
-        <Login />
-      </Route>
-      <NavBar />
-      <StrainsCard />
-      
-      
-      
+    <Router>
+      <div className="App">
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={SignUp} />
 
-
-    </div>
+        <PrivateRoute path="/home" component={Home} />
+      
+      </div>
+    </Router>
   );
 }
 
