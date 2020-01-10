@@ -26,7 +26,7 @@ const Login = props => {
 
   };
   const handleChanges = event => {
-    setLogininfo({ ...loginInfo, [event.target.name]: event.target.value });
+    setLogininfo({ ...loginInfo, [event.target.name]: event.target.value }); 
     console.log(event.target.name, event.target.value);
     
   };
