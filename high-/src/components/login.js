@@ -64,7 +64,9 @@ import axios from "axios"
       />
       {errors.password && <p>This field is required*</p>}
       <br></br>
-      <input type="submit" />
+
+        <button type="submit">Login</button>
+
         <div class="custom-control custom-checkbox">
            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember"/>
           <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
