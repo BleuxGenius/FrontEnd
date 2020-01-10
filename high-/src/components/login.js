@@ -10,79 +10,84 @@ import axios from "axios"
 
  export default function Login() {
   
-    const[signIn, setSignIn] = useState({
-      email:"", password:""
-    });
-  
-    const { register, handleSubmit, watch, errors}  = useForm();
-  
-      const onSubmit = data => {
-      // props.logIn(signIn);
+  const[signIn, setSignIn] = useState({
+    email:"", password:""
+     });
+
+
+    const { register, handleSubmit, watch, errors } = useForm();
+    const onSubmit = data => {
+      console.log(data);
       axios
       .post("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
+       console.log('User data', data);
+    
+     axios
+       .get("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
+    
 
-      axios
-      .get("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
-      };
+    }; // your form submit function which will invoke after successful validation
 
-      const handleChanges = e => {
-       setSignIn({ ...signIn, [e.target.name]: e.target.value})
-      };
+    const handleChanges = e => {
+      setSignIn({ ...signIn, [e.target.name]: e.target.value})
+       };
+  
+  
+    console.log(watch("example")); // you can watch individual input by pass the name of the input
+  
   
     return(
-     
-  <div className="container" >
-  <div className="row">
-    <div className="column" md="11">
-       <div className="card">
-         <div className="cardBody">
-  <Form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-    <div className="picColumn">
-    <p className="medCabinet">Med Cabinet</p> 
-    <img className="logo" src={logo} alt="logo"/> 
-    </div>
-    <h2 className="text-center">Login</h2>
-    <FormGroup>
-      <Label >Email</Label>
-      <Input type="text" name="email" placeholder="Email" value={signIn.email} onChange={handleChanges}/>
-      </FormGroup>
-      <FormGroup>
-      <Label >Password</Label>
+      
+      <div className="container" >
+   <div className="row">
+     <div className="column" md="11">
+        <div className="card">
+          <div className="cardBody"></div>
 
-      <Input type="password" name="password" placeholder="Password" value={signIn.password} onChange={handleChanges} ref={register({ required: true})}/>
-
-      {errors.password && <p className="errorsMessage">This field is required*</p>}
-
-      </FormGroup>
-      <button type='submit'> Login </button>
-
-  <div class="d-flex justify-content-between">
-      <div>
-          <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember"/>
-              <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-         </div>
-      </div>
-      <div>
-          <a href="">Forgot password?</a>
-      </div>
-  </div>
-
-        <div className="text-center pt-3">
-          Or
+      <form className= "login-form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="picColumn">
+        <p className="medCabinet">Med Cabinet</p> 
+        <img className="logo" src={logo} alt="logo"/> 
         </div>
-        
-        <FacebookLoginButton/>
-        <GoogleLoginButton/>
-        <TwitterLoginButton/>
-          <p>
-            Don't have an account?<Link to="/signup" class="signUpLink">Sign Up</Link>
+      <FormGroup>
+      <label>Email</label>
+      <input name="email" placeholder="Email" ref={register}/>
+      </FormGroup>
+      <br></br>
+
+      <FormGroup>
+
+      <label>Password</label>
+      <input
+        name="password" placeholder="password" onChange={handleChanges}
+        ref={register({ required: true, maxLength: 10 })}
+      />
+      {errors.password && <p>This field is required*</p>}
+      <br></br>
+      <input type="submit" />
+        <div class="custom-control custom-checkbox">
+           <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember"/>
+          <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+         </div>
+         <div>
+           <a href="">Forgot password?</a>
+       </div>
+       <div className="text-center pt-3">
+         Or
+         </div>
+      </FormGroup>
+      
+       <FacebookLoginButton/>
+      <GoogleLoginButton/>
+       <TwitterLoginButton/>
+         <p>
+           Don't have an account?<Link to="/signup" class="signUpLink">Sign Up</Link>
           </p>
-  </Form>
-  </div>
-  </div>
-  </div>
+    </form>
+    </div>
+      </div>
+      </div>
 </div>
-  </div>
-);
-};
+  );
+}
+     

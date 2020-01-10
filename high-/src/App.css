@@ -1,11 +1,4 @@
 
-
-
-
-
-  
-
-
 .container{
   width: 400px;
   height: 500x;
@@ -26,7 +19,7 @@
 .picColumn {
   display: flex;
   justify-content: center;
-  /* margin: auto; */
+
 
 }
 
@@ -51,6 +44,12 @@ button {
   margin-top: 15px;
   margin-left: 5px;
   margin-bottom: 10px;
+}
+
+Label {
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 16px;
 }
 
 
