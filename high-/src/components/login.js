@@ -4,48 +4,42 @@ import logo from './images/Logo.png';
 import {FacebookLoginButton, TwitterLoginButton, GoogleLoginButton} from 'react-social-login-buttons';
 import { useState } from "react";
 import { Link } from 'react-router-dom'
+import {useForm} from 'react-hook-form'
 import axios from "axios" 
 
 
-import axios from "axios" 
-
-
- export default function Login(props) {
+ export default function Login() {
   
     const[signIn, setSignIn] = useState({
       email:"", password:""
     });
   
-    const handleSubmit = e => {
-
-      e.preventDefault();
+    const { register, handleSubmit, watch, errors}  = useForm();
+  
+      const onSubmit = data => {
       // props.logIn(signIn);
       axios
       .post("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
 
       axios
       .get("https://medicinalcabinet.herokuapp.com/api/user/login", signIn)
-      }
-  
+      };
+
       const handleChanges = e => {
-        setSignIn({
-          ...signIn, [e.target.name]: e.target.value
-        });
+       setSignIn({ ...signIn, [e.target.name]: e.target.value})
       };
   
     return(
-
-      // flex-row w-50 justify-content-center
      
   <div className="container" >
   <div className="row">
     <div className="column" md="11">
        <div className="card">
          <div className="cardBody">
-  <Form className="login-form" onSubmit={handleSubmit}>
-    <p>Med Cabinet </p>
+  <Form className="login-form" onSubmit={handleSubmit(onSubmit)}>
     <div className="picColumn">
-    <img src={logo} className="imageThumbnail" alt="logo"/> 
+    <p className="medCabinet">Med Cabinet</p> 
+    <img className="logo" src={logo} alt="logo"/> 
     </div>
     <h2 className="text-center">Login</h2>
     <FormGroup>
@@ -53,10 +47,14 @@ import axios from "axios"
       <Input type="text" name="email" placeholder="Email" value={signIn.email} onChange={handleChanges}/>
       </FormGroup>
       <FormGroup>
-      <Label>Password</Label>
-      <Input type="password" name="password" placeholder="Password" value={signIn.password} onChange={handleChanges}/>
+      <Label >Password</Label>
+
+      <Input type="password" name="password" placeholder="Password" value={signIn.password} onChange={handleChanges} ref={register({ required: true})}/>
+
+      {errors.password && <p className="errorsMessage">This field is required*</p>}
+
       </FormGroup>
-      <button className="btn-sm btn-dark-block">Sign In</button>
+      <button type='submit'> Login </button>
 
   <div class="d-flex justify-content-between">
       <div>
@@ -73,11 +71,12 @@ import axios from "axios"
         <div className="text-center pt-3">
           Or
         </div>
+        
         <FacebookLoginButton/>
         <GoogleLoginButton/>
         <TwitterLoginButton/>
           <p>
-            Don't have an account?<Link to="/SignUp.js" class="signUpLink">Sign Up</Link>
+            Don't have an account?<Link to="/signup" class="signUpLink">Sign Up</Link>
           </p>
   </Form>
   </div>
