@@ -67,10 +67,24 @@ export default function StrainsCard() {
             <ViewLink linkto='/viewmore'>View More</ViewLink>
             </TopDiv>
             <StrainDiv>
+                
                 <TileImg src={strainbox} alt='strain type'></TileImg>
                 <StrainType>Sativa</StrainType>
                 <StrainAbb>SLV</StrainAbb>
                 <Strain>Silver Haze</Strain>
+
+                {/* <TileImg src={strainbox} alt='strain type'></TileImg>
+                <StrainType>Sativa</StrainType>
+                <StrainAbb>SLV</StrainAbb>
+                <Strain>Silver Haze</Strain>
+
+
+                <TileImg src={strainbox} alt='strain type'></TileImg>
+                <StrainType>Sativa</StrainType>
+                <StrainAbb>SLV</StrainAbb>
+                <Strain>Silver Haze</Strain> */}
+
+
             </StrainDiv>
         </div>
 

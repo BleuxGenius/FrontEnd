@@ -83,10 +83,10 @@ const TextDiv = styled.div`
 `;
 
 const LearnButton = styled.button`
-    color: white
+    color: white;
     font-size: 19px;
     background-color: #044953;
-    width: 145px
+    width: 145px;
     height: 38px;
     position: absolute;
     top: 245px;
@@ -110,7 +110,7 @@ const SignUpLink = styled(Link)`
     background-image: linear-gradient(#086571, #044A53);
     border-radius: 5px;
     cursor: grab; 
-    text-decoration: none
+    text-decoration: none;
     text-align: center;
     padding-top: 10px;
 `;
@@ -135,14 +135,14 @@ export default function NavBar() {
                 type='text'
                 placeholder= 'Search for strains, dispensaries, and news'
                 />
-                <NaviLink href='#'>Strains</NaviLink>
+                <NaviLink href='https://medicinalcabinetapp.herokuapp.com/predictions'>Strains</NaviLink>
                 <NaviLink href='#'>Dispensaries</NaviLink>
                 <LoginLink to='/login'>Sign In</LoginLink>
-                <SignUpLink to='/signup'>Sign Up</SignUpLink>
+                <SignUpLink to='/'>Sign Up</SignUpLink>
             </InnerDiv>
                 <HeaderImg src={banner} alt='banner image' />
                 <TextDiv>The Cannabis Guide Just For You</TextDiv>
-                <LearnButton>Learn Now</LearnButton>
+                <LearnButton> <a href = "https://medcabinet-bw1-master.netlify.com/index.html">Learn Now </a> </LearnButton>
             
         </MainDiv>
        

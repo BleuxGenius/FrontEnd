@@ -37,7 +37,7 @@ export const login = loginData => dispatch => {
       dispatch(
         { type: USER_LOGING_IN_SUCCESS, payload: response.data.user },
         localStorage.setItem("token", response.data.token),
-        history.push("/")
+        history.push("/home")//changed from / to /home
       )
     )
     .catch(err => {

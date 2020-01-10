@@ -1,9 +1,15 @@
 import React from "react";
+import StrainsCard from "./StrainsCard"
+import NavBar from "./NavBar"
 
 const Home = () => {
   return (
     <div>
-      <h1> HOME Page</h1>
+      
+      <NavBar/>
+      <StrainsCard/>
+    
+
     </div>
   );
 };
